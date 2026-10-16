@@ -22,3 +22,14 @@ Table :
 
 * Exemple : Une categorie peut a la fois s'ecrire `Plat malagasy` et `plat malagasy` le systeme peut les considerer comme different.
 
+## Étape 3 – Les commandes
+ Table :
+- PLATS( <b>idPlat</b> ,nom ,prix, #idCategoriePlats ).  
+- CATEGORIEPLATS(<b>idCategoriePlats</b>,nomCategorie).  
+- COMMANDES(<b>idCommande</b>,dateCommande)  `(nouveau)`
+- COMMANDESF(<b>idCommandeF</b>, #idCommandes ,#idPlats, pu, quantite)  `(nouveau)`
+
+### <u> Question Piege :</u>
+* La quantite d'un plats sera placer dans la table : **commandesF** 
+
+
