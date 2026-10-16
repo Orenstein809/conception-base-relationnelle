@@ -32,4 +32,14 @@ Table :
 ### <u> Question Piege :</u>
 * La quantite d'un plats sera placer dans la table : **commandesF** 
 
+## Étape 4 – Les habitués
+Table :
+- PLATS( <b>idPlat</b> ,nom ,prix, #idCategoriePlats ).  
+- CATEGORIEPLATS(<b>idCategoriePlats</b>,nomCategorie).  
+- COMMANDES(<b>idCommande</b>,dateCommande, #idClient?).  `(modifié)`
+- COMMANDESF(<b>idCommandeF</b>, #idCommandes ,#idPlats, pu, quantite)  
+- CLIENTS(<b>idClient</b>, nomClient)  `(nouveau)`
 
+### <u> Question Piege :</u>
+* Ma cle etrangere peut etre null pour designer un client de passage.
+* On doit utiliser `LEFT JOIN`  pour recuperer toute les commandes 

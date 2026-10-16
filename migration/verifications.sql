@@ -15,3 +15,13 @@ SELECT c.idCommande, SUM(cf.pu * cf.quantite) AS montant_total
 FROM commandes c
 JOIN commandesF cf ON c.idCommande = cf.idCommande
 GROUP BY c.idCommande;
+
+-- Etape 4 liste des commandes avec le nom du client, en affichant « client de passage » quand il n'y en a pas.
+SELECT
+    c.idCommande,
+    CASE
+        WHEN cl.nomClient IS NULL THEN 'client de passage'
+        ELSE cl.nomClient
+    END AS nomClient
+FROM commandes c
+LEFT JOIN clients cl ON c.idClient = cl.idClient;
