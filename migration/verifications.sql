@@ -25,3 +25,10 @@ SELECT
     END AS nomClient
 FROM commandes c
 LEFT JOIN clients cl ON c.idClient = cl.idClient;
+
+-- Etape 5 nombre de commandes et chiffre d'affaires par serveur.
+SELECT s.idServeur, COUNT(DISTINCT c.idCommande) AS nombre_commandes, SUM(cf.pu * cf.quantite) AS chiffre_affaires
+FROM serveur s
+LEFT JOIN commandes c ON s.idServeur = c.idServeur
+LEFT JOIN commandesF cf ON c.idCommande = cf.idCommande
+GROUP BY s.idServeur;

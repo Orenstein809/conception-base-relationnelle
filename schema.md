@@ -43,3 +43,17 @@ Table :
 ### <u> Question Piege :</u>
 * Ma cle etrangere peut etre null pour designer un client de passage.
 * On doit utiliser `LEFT JOIN`  pour recuperer toute les commandes 
+
+## Étape 5 – Serveurs et tables 
+Table :
+- PLATS( <b>idPlat</b> ,nom ,prix, #idCategoriePlats ).  
+- CATEGORIEPLATS(<b>idCategoriePlats</b>,nomCategorie).  
+- COMMANDES(<b>idCommande</b>,dateCommande, #idClient?, #idTable, #idServeur).  
+- COMMANDESF(<b>idCommandeF</b>, #idCommandes ,#idPlats, pu, quantite)  
+- CLIENTS(<b>idClient</b>, nomClient) 
+- TABLE(<b>idTable</b>) `(nouveau)`
+- SERVEUR(<b>idServeur</b>, nomServeur) `(nouveau)`
+
+### <u> Question Piege :</u>
+Une table peut avoir plusieurs commande mais une commande ne peut pas avoir plusieurs table.
+Le nom table pose probleme car c'est deja reserver dans le language 
