@@ -32,3 +32,18 @@ FROM serveur s
 LEFT JOIN commandes c ON s.idServeur = c.idServeur
 LEFT JOIN commandesF cf ON c.idCommande = cf.idCommande
 GROUP BY s.idServeur;
+
+-- Etape 6 liste des commandes non solde avec le montant du, le montant payé et le reste à payer.
+SELECT c.idCommande,
+       SUM(cf.pu * cf.quantite) AS montant_du,
+       COALESCE(p.montant_paye, 0) AS montant_paye,
+       SUM(cf.pu * cf.quantite) - COALESCE(p.montant_paye, 0) AS reste_a_payer
+FROM commandes c
+JOIN commandesF cf ON c.idCommande = cf.idCommande
+LEFT JOIN (
+    SELECT p.idCommande, SUM(pf.montant) AS montant_paye
+    FROM paiementF pf
+    JOIN paiement p ON pf.idPaiement = p.idPaiement
+    GROUP BY idCommande
+) p ON c.idCommande = p.idCommande
+GROUP BY c.idCommande, p.montant_paye;

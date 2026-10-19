@@ -57,3 +57,29 @@ Table :
 ### <u> Question Piege :</u>
 Une table peut avoir plusieurs commande mais une commande ne peut pas avoir plusieurs table.
 Le nom table pose probleme car c'est deja reserver dans le language 
+
+---
+
+# Niveau 2 – Intermédiaire
+
+## Étape 6 – Les paiements
+Table : 
+- PLATS( <b>idPlat</b> ,nom ,prix, #idCategoriePlats ).  
+- CATEGORIEPLATS(<b>idCategoriePlats</b>,nomCategorie).  
+- COMMANDES(<b>idCommande</b>,dateCommande, #idClient?, #idTable, #idServeur).  
+- COMMANDESF(<b>idCommandeF</b>, #idCommandes ,#idPlats, pu, quantite)  
+- CLIENTS(<b>idClient</b>, nomClient) 
+- TABLE(<b>idTable</b>) 
+- SERVEUR(<b>idServeur</b>, nomServeur),
+- PAIEMENT(<b>idPaiement</b>, #idCommande, datePaiement) `(nouveau)`
+- PAIEMENTF(<b>idPaimentF</b>, #idPaiement ,montant ,#idTypePaiement) `(nouveau)`
+- TYPEPAIEMENT(<b>idTypePaiement</b>,nomTypePaiement) `(nouveau)`
+
+### <u> Question Piege :</u>
+Une colonne **montant_paye** dans la table des commandes ne suffit pas car on a preciser que le paiement d'une commande peut se faire deux fois par des facon differentes.
+<br>
+**<u>Comparaison entre contrainte CHECK ou table de référence : </u>**
+On utilisant CHECK on impose des valeur fixes non extensible et modifiable si on ne update pas tout le champ tandis que l'utilisation d'une table de reference nous permet facilement ces modifications mais en echange d'une requete plus complexe
+
+
+
