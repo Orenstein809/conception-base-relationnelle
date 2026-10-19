@@ -21,7 +21,6 @@ CREATE TABLE  paiementF(
 );
 
 
-
 INSERT INTO typePaiement (nomTypePaiement) VALUES
 ('Espece'),
 ('MVola'),

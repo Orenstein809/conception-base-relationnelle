@@ -81,5 +81,19 @@ Une colonne **montant_paye** dans la table des commandes ne suffit pas car on a 
 **<u>Comparaison entre contrainte CHECK ou table de référence : </u>**
 On utilisant CHECK on impose des valeur fixes non extensible et modifiable si on ne update pas tout le champ tandis que l'utilisation d'une table de reference nous permet facilement ces modifications mais en echange d'une requete plus complexe
 
+## Étape 7 – Les prix changent
+Table : 
+- PLATS( <b>idPlat</b> ,nom ,prix, #idCategoriePlats ).  
+- CATEGORIEPLATS(<b>idCategoriePlats</b>,nomCategorie).  
+- COMMANDES(<b>idCommande</b>,dateCommande, #idClient?, #idTable, #idServeur).  
+- COMMANDESF(<b>idCommandeF</b>, #idCommandes ,#idPlats, pu, quantite)  
+- CLIENTS(<b>idClient</b>, nomClient) 
+- TABLE(<b>idTable</b>) 
+- SERVEUR(<b>idServeur</b>, nomServeur),
+- PAIEMENT(<b>idPaiement</b>, #idCommande, datePaiement) 
+- PAIEMENTF(<b>idPaimentF</b>, #idPaiement ,montant ,#idTypePaiement) 
+- TYPEPAIEMENT(<b>idTypePaiement</b>,nomTypePaiement)
+- HISTORIQUEPRIXPLATS(<b>idHistoriquePrixPlats</b>, #idPlat, prix,dateDebut,dateFin)
 
-
+### <u> Question Piege :</u>
+Cela n'a aucun impacte car on stock le prix d'un plats dans une commande  
